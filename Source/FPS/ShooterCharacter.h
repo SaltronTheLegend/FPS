@@ -6,7 +6,7 @@
 #include "GameFramework/Character.h"
 #include "ShooterCharacter.generated.h"
 
-//class AGun;
+class AGun;
 
 UCLASS()
 class FPS_API AShooterCharacter : public ACharacter
@@ -28,7 +28,7 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
-	//void Shoot();
+	void Shoot();
 
 private:
 	void MoveForward(float AxisValue);
@@ -38,15 +38,16 @@ private:
 
 	UPROPERTY(EditAnywhere)
 		float RotationRate = 10.f;
+
 	UPROPERTY(EditDefaultsOnly)
 		float MaxHealth = 100;
 
 	UPROPERTY(VisibleAnywhere)
 		float Health = 100;
 
-	//UPROPERTY(EditDefaultsOnly)
-		//TSubclassOf<AGun> GunClass;
+	UPROPERTY(EditDefaultsOnly)
+		TSubclassOf<AGun> GunClass;
 
-	//UPROPERTY()
-		//AGun* Gun;
+	UPROPERTY()
+		AGun* Gun;
 };  
